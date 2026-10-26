@@ -95,13 +95,14 @@ MIT license. Built by Shimi Network.
 **Run it**
 ```bash
 npm install
-# 1) Security test (no PayPal keys needed)
-PORT=8090 node server.js &  BASE=http://localhost:8090 node test_security.js
-# 2) Ledger math test (local only, unsigned webhooks allowed)
-PORT=8091 ALLOW_UNSIGNED_TEST_WEBHOOKS=1 node server.js &  BASE=http://localhost:8091 node test.js
-# 3) Real sandbox flow
+npm test        # one command: starts the server itself and runs BOTH suites
+                # (security: forged webhook rejected; ledger: issue -> verify -> commission 14.98)
+
+# Real sandbox flow (needs credentials from developer.paypal.com)
 export PAYPAL_CLIENT_ID=... PAYPAL_CLIENT_SECRET=... PAYPAL_WEBHOOK_ID=...
-PORT=8080 node server.js
+node server.js
 ```
+`npm test` starts two private server instances: one strict (fail-closed, used by the security suite) and one with
+`ALLOW_UNSIGNED_TEST_WEBHOOKS=1` (local ledger test only). That flag must never be set in production.
 
 License: MIT (see `LICENSE`).
