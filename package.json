@@ -1,0 +1,14 @@
+{
+  "name": "shimi-paypal-rail",
+  "version": "1.0.0",
+  "description": "Agent Economy on PayPal — reference implementation of the Shimi Network payment rail",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.22.3"
+  }
+}
