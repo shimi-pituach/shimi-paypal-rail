@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node test.js"
+    "test": "ALLOW_UNSIGNED_TEST_WEBHOOKS=1 node test.js"
   },
   "license": "MIT",
   "dependencies": {
